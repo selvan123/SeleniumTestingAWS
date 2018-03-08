@@ -30,7 +30,7 @@ namespace SeleniumTest.Tests
             driver.Navigate().GoToUrl(URL);
             string txt = driver.FindElement(By.TagName("body")).Text;
 
-
+            File.WriteAllText(@"c:\ip.txt", URL+driver.Title);
             Assert.AreEqual("Home", driver.Title);
             //Assert.IsTrue(txt.Contains("offered"));
             // driver.Close();

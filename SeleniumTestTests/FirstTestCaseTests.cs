@@ -27,7 +27,7 @@ namespace SeleniumTest.Tests
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(300);
 
-            File.WriteAllText(@"c:\ip.txt", URL.ToString());
+            File.WriteAllText(@"c:\ip1.txt", URL.ToString());
 
 
             driver.Navigate().GoToUrl(URL);

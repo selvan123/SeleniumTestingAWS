@@ -19,6 +19,8 @@ namespace SeleniumTest.Tests
             //IWebDriver driver = new ChromeDriver(@"D:\Users\sels\Downloads");
             //driver.Url = "http://www.demoqa.com";
 
+            try
+            {
             File.WriteAllText(@"c:\ip.txt", "Hello");
 
             WebClient Client = new WebClient();
@@ -40,6 +42,11 @@ namespace SeleniumTest.Tests
             Assert.AreEqual("Home", driver.Title);
             //Assert.IsTrue(txt.Contains("offered"));
             // driver.Close();
+            }
+            catch(System.Exception ex)
+            {
+                File.WriteAllText(@"c:\ip.txt", ex.ToString());
+            }
         }
 
         [TestInitialize()]

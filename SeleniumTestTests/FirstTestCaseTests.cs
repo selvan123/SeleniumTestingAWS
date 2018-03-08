@@ -2,14 +2,15 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using System.Net;
+using System.IO;
 
 namespace SeleniumTest.Tests
 {
     [TestClass()]
     public class FirstTestCaseTests
     {
-        
-      
+
+
         PhantomJSDriver driver = null;
         [TestMethod]
         public void IsParticularElementPresent()
@@ -19,7 +20,7 @@ namespace SeleniumTest.Tests
             //driver.Url = "http://www.demoqa.com";
 
             File.WriteAllText(@"c:\ip.txt", "Hello");
-            
+
             WebClient Client = new WebClient();
             string URL = Client.DownloadString("https://s3-us-west-2.amazonaws.com/dotnetdata/elb-dns.txt");
 
@@ -32,7 +33,7 @@ namespace SeleniumTest.Tests
             driver.Navigate().GoToUrl(URL);
             string txt = driver.FindElement(By.TagName("body")).Text;
 
-            
+
             Assert.AreEqual("Home", driver.Title);
             //Assert.IsTrue(txt.Contains("offered"));
             // driver.Close();
@@ -42,7 +43,7 @@ namespace SeleniumTest.Tests
         public void MyTestInitialize()
         {
             driver = new PhantomJSDriver();
-             
+
         }
 
         [TestCleanup()]

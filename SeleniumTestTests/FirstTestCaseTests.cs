@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.PhantomJS;
 using System.Net;
@@ -8,6 +8,7 @@ namespace SeleniumTest.Tests
     [TestClass()]
     public class FirstTestCaseTests
     {
+        
       
         PhantomJSDriver driver = null;
         [TestMethod]

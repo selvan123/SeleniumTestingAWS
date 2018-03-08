@@ -18,6 +18,8 @@ namespace SeleniumTest.Tests
             //IWebDriver driver = new ChromeDriver(@"D:\Users\sels\Downloads");
             //driver.Url = "http://www.demoqa.com";
 
+            File.WriteAllText(@"c:\ip.txt", "Hello");
+            
             WebClient Client = new WebClient();
             string URL = Client.DownloadString("https://s3-us-west-2.amazonaws.com/dotnetdata/elb-dns.txt");
 
@@ -30,7 +32,7 @@ namespace SeleniumTest.Tests
             driver.Navigate().GoToUrl(URL);
             string txt = driver.FindElement(By.TagName("body")).Text;
 
-            File.WriteAllText(@"c:\ip.txt", URL+driver.Title);
+            
             Assert.AreEqual("Home", driver.Title);
             //Assert.IsTrue(txt.Contains("offered"));
             // driver.Close();

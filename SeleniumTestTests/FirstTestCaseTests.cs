@@ -24,13 +24,15 @@ namespace SeleniumTest.Tests
             WebClient Client = new WebClient();
             string URL = Client.DownloadString("https://s3-us-west-2.amazonaws.com/dotnetdata/elb-dns.txt");
 
-            driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(300);
 
             File.WriteAllText(@"c:\ip1.txt", URL.ToString());
 
 
             driver.Navigate().GoToUrl(URL);
+            
+            driver.Manage().Window.Maximize();
+            driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(300);
+            
             string txt = driver.FindElement(By.TagName("body")).Text;
 
 

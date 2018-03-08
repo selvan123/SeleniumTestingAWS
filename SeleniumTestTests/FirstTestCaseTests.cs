@@ -27,11 +27,11 @@ namespace SeleniumTest.Tests
 
             File.WriteAllText(@"c:\ip1.txt", URL.ToString());
 
-
-            driver.Navigate().GoToUrl(URL);
-            
             driver.Manage().Window.Maximize();
             driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(300);
+
+            driver.Navigate().GoToUrl(URL);
+
             
             string txt = driver.FindElement(By.TagName("body")).Text;
 
@@ -50,7 +50,8 @@ namespace SeleniumTest.Tests
                 File.WriteAllText(@"c:\ip.txt", "Before");
                 driver = new PhantomJSDriver();
             }
-            catch(System.Exception ex) {
+            catch (System.Exception ex)
+            {
                 File.WriteAllText(@"c:\ip.txt", ex.ToString());
             }
 

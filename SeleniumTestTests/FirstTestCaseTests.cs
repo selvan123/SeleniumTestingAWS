@@ -19,7 +19,7 @@ namespace SeleniumTest.Tests
             //IWebDriver driver = new ChromeDriver(@"D:\Users\sels\Downloads");
             //driver.Url = "http://www.demoqa.com";
 
-            File.WriteAllText(@"c:\ip.txt", "Hello");
+        
 
             WebClient Client = new WebClient();
             string URL = Client.DownloadString("https://s3-us-west-2.amazonaws.com/dotnetdata/elb-dns.txt");
@@ -42,6 +42,7 @@ namespace SeleniumTest.Tests
         [TestInitialize()]
         public void MyTestInitialize()
         {
+            File.WriteAllText(@"c:\ip.txt", "Hello");
             driver = new PhantomJSDriver();
 
         }

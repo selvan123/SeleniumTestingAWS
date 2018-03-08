@@ -8,41 +8,6 @@ namespace SeleniumTest.Tests
     [TestClass()]
     public class FirstTestCaseTests
     {
-        //[TestMethod()]
-        //public void IsParticularElementPresent()
-        //{
-        //    IWebDriver driver = new ChromeDriver(@"D:\Users\sels\Downloads");
-        //    //driver.Url = "http://www.demoqa.com";
-        //    driver.Navigate().GoToUrl("https://www.google.com");
-        //    string txt = driver.FindElement(By.TagName ("body")).Text;
-
-        //    driver.Close();
-
-        //    Assert.IsTrue( txt.Contains("offered"));
-        //}
-
-        //[TestMethod()]
-        //public void Login()
-        //{
-        //    IWebDriver driver = new ChromeDriver(@"D:\Users\sels\Downloads");
-        //    //driver.Url = "http://www.demoqa.com";
-        //    driver.Navigate().GoToUrl("http://localhost/BORCA/login.aspx");
-
-        //    var  uname = driver.FindElement(By.Id("ctl00_cphBORCA_txtUserName"));
-        //    var  pwd = driver.FindElement(By.Id("ctl00_cphBORCA_txtPassword"));
-        //    var btn = driver.FindElement(By.Id("ctl00_cphBORCA_btnLogin1"));
-
-        //    uname.SendKeys("sels");
-        //    pwd.SendKeys("Dynamic6&8");
-        //    btn.Click();
-        //    driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(10);
-
-
-        //    string txt = driver.FindElement(By.TagName("body")).Text;
-        //    driver.Close();
-        //    Assert.IsTrue(txt.Contains("Menu"));
-        //}
-
       
         PhantomJSDriver driver = null;
         [TestMethod]
@@ -65,7 +30,7 @@ namespace SeleniumTest.Tests
             string txt = driver.FindElement(By.TagName("body")).Text;
 
 
-            Assert.AreEqual("Home2", driver.Title);
+            Assert.AreEqual("Home", driver.Title);
             //Assert.IsTrue(txt.Contains("offered"));
             // driver.Close();
         }

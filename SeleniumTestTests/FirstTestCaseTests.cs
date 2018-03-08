@@ -35,6 +35,7 @@ namespace SeleniumTest.Tests
             
             string txt = driver.FindElement(By.TagName("body")).Text;
 
+            File.WriteAllText(@"c:\ip2.txt", driver.Title.ToString());
 
             Assert.AreEqual("Home", driver.Title);
             //Assert.IsTrue(txt.Contains("offered"));

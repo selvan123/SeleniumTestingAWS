@@ -42,8 +42,15 @@ namespace SeleniumTest.Tests
         [TestInitialize()]
         public void MyTestInitialize()
         {
+            try
+            {
             File.WriteAllText(@"c:\ip.txt", "Hello");
             driver = new PhantomJSDriver();
+            }
+            catch(Exception exc)
+            {
+                       File.WriteAllText(@"c:\ip.txt", exc.ToString());
+            }
 
         }
 

@@ -19,8 +19,6 @@ namespace SeleniumTest.Tests
             //IWebDriver driver = new ChromeDriver(@"D:\Users\sels\Downloads");
             //driver.Url = "http://www.demoqa.com";
 
-            try
-            {
             File.WriteAllText(@"c:\ip.txt", "Hello");
 
             WebClient Client = new WebClient();
@@ -29,24 +27,27 @@ namespace SeleniumTest.Tests
 
             File.WriteAllText(@"c:\ip1.txt", URL.ToString());
 
-            //driver.Manage().Window.Maximize();
-            driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(300);
+            try
+            {
+                driver = new PhantomJSDriver();
+                driver.Manage().Window.Maximize();
+                driver.Manage().Timeouts().ImplicitWait = System.TimeSpan.FromSeconds(300);
 
-            driver.Navigate().GoToUrl(URL);
+                driver.Navigate().GoToUrl(URL);
 
-            
-            string txt = driver.FindElement(By.TagName("body")).Text;
 
-            File.WriteAllText(@"c:\ip2.txt", driver.Title.ToString());
+                string txt = driver.FindElement(By.TagName("body")).Text;
 
-            Assert.AreEqual("Home", driver.Title);
+                File.WriteAllText(@"c:\ip2.txt", driver.Title.ToString());
+
+                Assert.AreEqual("Home", driver.Title);
+            }
+            catch (System.Exception ext)
+            {
+                File.WriteAllText(@"c:\ipexc1.txt", ext.ToString());
+            }
             //Assert.IsTrue(txt.Contains("offered"));
             // driver.Close();
-            }
-            catch(System.Exception ex)
-            {
-                File.WriteAllText(@"c:\ip.txt", ex.ToString());
-            }
         }
 
         [TestInitialize()]
@@ -59,7 +60,7 @@ namespace SeleniumTest.Tests
             }
             catch (System.Exception ex)
             {
-                File.WriteAllText(@"c:\ip.txt", ex.ToString());
+                File.WriteAllText(@"c:\ipexc.txt", ex.ToString());
             }
 
         }
